@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>My Web Phone (WebRTC → SIP)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+  <!-- JsSIP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/jssip@3.10.0/lib/jssip.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>My Web Phone</h1>
+
+    <div id="status" class="status">Status: loading…</div>
+
+    <div class="card">
+      <label>Destination (E.164 or SIP URI)</label>
+      <input id="dest" type="text" placeholder="+9477xxxxxxx or 1002@yourdomain" />
+    </div>
+
+    <div class="grid-2">
+      <button id="btn-connect" class="primary">Connect</button>
+      <button id="btn-disconnect" class="danger" disabled>Disconnect</button>
+    </div>
+
+    <div class="grid-3">
+      <button class="dial" data-d="1">1</button>
+      <button class="dial" data-d="2">2</button>
+      <button class="dial" data-d="3">3</button>
+      <button class="dial" data-d="4">4</button>
+      <button class="dial" data-d="5">5</button>
+      <button class="dial" data-d="6">6</button>
+      <button class="dial" data-d="7">7</button>
+      <button class="dial" data-d="8">8</button>
+      <button class="dial" data-d="9">9</button>
+      <button class="dial" data-d="+">+</button>
+      <button class="dial" data-d="0">0</button>
+      <button class="dial" data-d="#">#</button>
+    </div>
+
+    <div class="grid-2">
+      <button id="btn-call" class="success" disabled>Call</button>
+      <button id="btn-hangup" class="danger" disabled>Hang Up</button>
+    </div>
+
+    <div class="card">
+      <label>Logs</label>
+      <pre id="log" class="log"></pre>
+    </div>
+  </div>
+
+  <!-- Hidden audio elements -->
+  <audio id="remoteAudio" autoplay playsinline></audio>
+  <audio id="ringback" loop preload="auto" src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABYAAAACAAA="></audio>
+
+  <script src="./app.js"></script>
+</body>
+</html>
